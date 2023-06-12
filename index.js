@@ -1,6 +1,6 @@
 
 // Create a new Webex app instance
-const app = new webex.Application();
+const app = new window.Webex.Application();
 
 // Wait for onReady() promise to fulfill before using framework
 app.onReady().then(() => {
@@ -11,13 +11,18 @@ app.onReady().then(() => {
 
 // Button click handler to set share URL
 function handleSetShare() {
-    // Replace this with the URL of your shared page
-    var url = "https://nikhilv001.github.io/EmbeddedApp/shared.html"
-    // "Shared App" is the title of the window or tab that will be created
-    app.setShareUrl(url, "", "Shared App").then(() => {
-        log("Set share URL", url);
-    }).catch((errorcode) => {
-        log("Error: ")
+    console.log('Clicked');
+    app.context
+    .getUser()
+    .then((u) => {
+        log('getUser()',u);
+      console.log("getUser()", u);
+    })
+    .catch((error) => {
+      console.log(
+        "getUser() promise failed with error",
+        Webex.Application.ErrorCodes[error]
+      );
     });
 }
 

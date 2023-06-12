@@ -1,6 +1,6 @@
 
 // Create a new Webex app instance
-const app = new webex.Application();
+const app = new window.Webex.Application();
 
 // Wait for onReady() promise to fulfill before using framework
 app.onReady().then(() => {
