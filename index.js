@@ -1,12 +1,12 @@
 
 // Create a new Webex app instance
-var app = new window.Webex.Application();
+const app = new webex.Application();
 
 // Wait for onReady() promise to fulfill before using framework
 app.onReady().then(() => {
     log("App ready. Instance", app);
 }).catch((errorcode) =>  {
-    log("Error with code: ", Webex.Application.ErrorCodes[errorcode])
+    log("Error with code: ")
 });
 
 // Button click handler to set share URL
@@ -17,7 +17,7 @@ function handleSetShare() {
     app.setShareUrl(url, "", "Shared App").then(() => {
         log("Set share URL", url);
     }).catch((errorcode) => {
-        log("Error: ", Webex.Application.ErrorCodes[errorcode])
+        log("Error: ")
     });
 }
 
