@@ -43,14 +43,14 @@ function initializeSideBar(callCount) {
         handleBadge(callCount, sidebar);
       })
       .catch((error) => {
-        console.log("getSidebar() failed. Error: ", Webex.Application.ErrorCodes[error]);
+        console.log("getSidebar() failed. Error: ");
       });
   }
 
   function handleBadge(callCount, sidebar) {
     // Make sure the sidebar is available..
     if (!sidebar) {
-      console.log("Sidebar info is not available. Error: ", Webex.Application.ErrorCodes[4]);
+      console.log("Sidebar info is not available. Error: ");
       return;
     }
   
@@ -64,7 +64,7 @@ function initializeSideBar(callCount) {
     sidebar.showBadge(badge).then((success) => {
         console.log("sidebar.showBadge() successful.", success);
       }).catch((error) => {
-        console.log("sidebar.showBadge() failed. Error: ", Webex.Application.ErrorCodes[error]);
+        console.log("sidebar.showBadge() failed. Error: ");
       });
   }
 
