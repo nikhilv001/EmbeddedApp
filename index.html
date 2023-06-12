@@ -2,6 +2,7 @@
 <head>
   <title>Embedded Apps Quick Start</title>
   <script src="https://binaries.webex.com/static-content-pipeline/webex-embedded-app/v1/webex-embedded-app-sdk.js" defer></script>
+  <script src="https://unpkg.com/@webex/embedded-app-sdk@latest" defer />
   <script src="./index.js" defer></script>
 </head>
 <body>
@@ -10,5 +11,6 @@
     <button onclick="handleSetShare()">Get User details</button>
     <h2>Event Log</h2>
     <ul id="console" />
+    <button onclick="handleNotificationCount()">Increment Notification Count</button>
 </body>
 </html>

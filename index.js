@@ -1,4 +1,4 @@
-
+import {useState} from 'react';
 // Create a new Webex app instance
 const app = new window.Webex.Application();
 
@@ -30,6 +30,43 @@ app.onReady().then(() => {
     log("Error with code: ")
 });
 
+// Button click handler to increment notification count
+function handleNotificationCount(){
+    initializeSideBar(5);
+}
+
+
+function initializeSideBar(callCount) {
+    app.context.getSidebar().then((s) => {
+        sidebar = s;
+        console.log("Show a badge on the sidebar...")
+        handleBadge(callCount, sidebar);
+      })
+      .catch((error) => {
+        console.log("getSidebar() failed. Error: ", Webex.Application.ErrorCodes[error]);
+      });
+  }
+
+  function handleBadge(callCount, sidebar) {
+    // Make sure the sidebar is available..
+    if (!sidebar) {
+      console.log("Sidebar info is not available. Error: ", Webex.Application.ErrorCodes[4]);
+      return;
+    }
+  
+    // Initialize a badge object...
+    const badge = {
+      badgeType: 'count',
+      count: callCount,
+    };
+  
+    // Show the badge...
+    sidebar.showBadge(badge).then((success) => {
+        console.log("sidebar.showBadge() successful.", success);
+      }).catch((error) => {
+        console.log("sidebar.showBadge() failed. Error: ", Webex.Application.ErrorCodes[error]);
+      });
+  }
 
 // Button click handler to set share URL
 function handleSetShare() {
