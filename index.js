@@ -31,12 +31,8 @@ app.onReady().then(() => {
 
 // Button click handler to increment notification count
 function handleNotificationCount(){
+    let callCount =5;
     log('Notification count: 5');
-    initializeSideBar(5);
-}
-
-
-function initializeSideBar(callCount) {
     app.context.getSidebar().then((sidebar) => {
         sidebar.showBadge({
             badgeType: 'count',
@@ -47,6 +43,7 @@ function initializeSideBar(callCount) {
     console.log("getSidebar() failed. Error: ");
     });
 }
+
 
 // Button click handler to set share URL
 function handleSetShare() {
