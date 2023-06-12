@@ -1,4 +1,3 @@
-import {useState} from 'react';
 // Create a new Webex app instance
 const app = new window.Webex.Application();
 
