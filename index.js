@@ -31,6 +31,7 @@ app.onReady().then(() => {
 
 // Button click handler to increment notification count
 function handleNotificationCount(){
+    log('Notification count: 5');
     initializeSideBar(5);
 }
 
