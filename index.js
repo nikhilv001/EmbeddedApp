@@ -37,36 +37,16 @@ function handleNotificationCount(){
 
 
 function initializeSideBar(callCount) {
-    app.context.getSidebar().then((s) => {
-        sidebar = s;
-        console.log("Show a badge on the sidebar...")
-        handleBadge(callCount, sidebar);
-      })
-      .catch((error) => {
-        console.log("getSidebar() failed. Error: ");
-      });
-  }
-
-  function handleBadge(callCount, sidebar) {
-    // Make sure the sidebar is available..
-    if (!sidebar) {
-      console.log("Sidebar info is not available. Error: ");
-      return;
-    }
-  
-    // Initialize a badge object...
-    const badge = {
-      badgeType: 'count',
-      count: callCount,
-    };
-  
-    // Show the badge...
-    sidebar.showBadge(badge).then((success) => {
-        console.log("sidebar.showBadge() successful.", success);
-      }).catch((error) => {
-        console.log("sidebar.showBadge() failed. Error: ");
-      });
-  }
+    app.context.getSidebar().then((sidebar) => {
+        sidebar.showBadge({
+            badgeType: 'count',
+            count: callCount,
+          });
+    })
+    .catch((error) => {
+    console.log("getSidebar() failed. Error: ");
+    });
+}
 
 // Button click handler to set share URL
 function handleSetShare() {
